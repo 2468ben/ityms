@@ -1,0 +1,26 @@
+<%= erb :header %>
+<script type="text/javascript" src="/js/validate.min.js"></script>
+<div class="sixteen columns alpha omega" id="maincol">
+
+	<h2 class="headline">Settings</h2>
+	<div class="box">
+    <div id="settings_error" class="error">
+      <%= @settings_error if @settings_error %>
+    </div>
+ 	<a href="/changepassword/<%= @logged_in_user.id %>/logged_in">Change password</a><br /><br />
+	<form name="change_timezone" action="/change_timezone" method="post">
+		<label for="timezone">Change Timezone</label>
+		<select name="timezone">
+		    <% @timezones.each do |timezone| %>
+			  <option value="<%= timezone.to_s %>" <%= timezone.to_s == @defaulttimezone ? 'selected' : '' %>><%= timezone.to_s %></option>
+		    <% end %>
+		</select>
+		<input type="submit" value="Change" />
+    </form>
+    <a href="/deactivate_account">Deactivate Account</a><br />
+</div>
+</div> 
+
+<%= erb :footer %>
+
+

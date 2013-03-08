@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html>
+  <head>
+  	<meta charset="utf-8">
+	<%= ::NewRelic::Agent.browser_timing_header rescue "" %>
+  	<title>ityms - Home</title>
+  	<meta name="description" content="ITYMS">
+  	<meta name="author" content="Ben Donaldson">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+	<link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/images/touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/touch-icon-72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/touch-icon-114.png">
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-36632344-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="header" class="sixteen columns roundedwhitebox">
+        <div id="logo" class="ten columns alpha omega">
+          <h1><a href="/">ityms</a></h1><span id="logo_subtitle">rewrite the web - ALPHA</span>
+        </div>
+          <div id="mainmenu" class="six columns alpha omega">
+            <% if @logged_in_user %>
+              <a href="/">Home</a> · 
+              <%= link_to_user(@logged_in_user, @logged_in_user) %> ·
+              <a href="/timeline">Everyone</a> ·
+			  <a href="/settings">Settings</a> ·
+			  <a href="<%= $plugin_link %>" target="_blank">Plugin</a> ·
+              <a href="/logout">Logout</a>
+			<% else %>
+			  <a class="offset-by-three" href="/login">Login or Signup</a>
+            <% end %>
+          </div>
+      </div>
+      <div class="sixteen columns">

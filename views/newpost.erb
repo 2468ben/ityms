@@ -1,0 +1,48 @@
+<%= erb :header %>
+<script type="text/javascript" src="/js/validate.min.js"></script>
+<div class="sixteen columns alpha omega" id="maincol">
+  <h2 class="headline">Add an itym</h2>
+    <div id="updateform" class="box">
+      <% if @posting_error %>
+        <div class="error">
+          <%= @posting_error %>
+        </div>
+      <% end %>
+      <form action="/post" method="post">
+  	  	<label for="url">URL *</label>
+        <input type="text"name="url" required autofocus rows="1" columns="120" value=""/>
+  	  	<label for="old_phrase">They wrote *</label>
+        <input type="text"name="old_phrase" required rows="5" columns="70" maxlength=140 value="include several words"/>
+  	  	<label for="new_phrase">You think they meant *</label>
+        <input type="text"name="new_phrase" required rows="5" columns="70" maxlength=140 value="fix the phrase above"/>
+        <input type="submit" value="Update">
+      </form>
+    </div>
+</div>  
+
+<script type="text/javascript">
+	function basicValidator(formName, password, extraRules, errorElementId) {
+		var basicRules = [{
+			name: 'url',
+			rules: 'required|min_length[1]|max_length[120]'
+		},{
+			name: 'old_phrase',
+			rules: 'required|min_length[5]|max_length[120]'
+		},{
+			name: 'new_phrase',
+			rules: 'required|min_length[5]|max_length[120]'
+		}];
+		return new FormValidator(formName, basicRules.concat(extraRules), function(errors, event) {
+			if (errors.length > 0) {
+		        var errorString = [];
+		        for (var i = 0, errorLength = errors.length; i < errorLength; i++) errorString.push(errors[i].message);
+		        document.getElementById(errorElementId).innerHTML =  errorString.join("<br />");
+			} 
+		});
+	}
+	validator = basicValidator('post', false, [], 'posting_error');
+</script>
+
+<%= erb :footer %>
+
+

@@ -1,0 +1,41 @@
+<%= erb :header %>
+<script type="text/javascript" src="/js/validate.min.js"></script>
+<div class="eight columns alpha">
+  <h2>Deactivate Account</h2>
+  Are you sure? All of your posts and likes will be hidden, but your followers/followees will be deleted.
+    <div id="deactivate_error" class="error">
+      <%= @deactivate_error if @deactivate_error %>
+    </div>
+	
+  <form name="deactivateaccount" action="/actually_deactivate_account" method="post">
+	<label for="password">Type your password to confirm</label>
+	<input type="password" name="password" required autofocus maxlength=40 placeholder="5-40 characters"/>
+    <input type="submit" value="Deactivate" />
+  </form>
+</div>  
+
+<div class="eight columns omega">
+</div>
+<script type="text/javascript">
+	function basicValidator(formName, password, extraRules, errorElementId) {
+		var basicRules = [{
+			name: 'password',
+			rules: 'required|min_length[5]|max_length[40]'
+		},{
+			name: 'password_confirmation',
+			rules: 'required|matches[password]'
+		});
+		return new FormValidator(formName, basicRules.concat(extraRules), function(errors, event) {
+			if (errors.length > 0) {
+		        var errorString = [];
+		        for (var i = 0, errorLength = errors.length; i < errorLength; i++) errorString.push(errors[i].message);
+		        document.getElementById(errorElementId).innerHTML =  errorString.join("<br />");
+			} 
+		});
+	}
+	validator = basicValidator('deactivateaccount', true, [], 'deactivate_error');
+</script>
+
+<%= erb :footer %>
+
+

@@ -1,0 +1,45 @@
+<%= erb :header %>
+<script type="text/javascript" src="/js/validate.min.js"></script>
+<div class="sixteen columns alpha omega" id="rightcol">
+  <h2 class="headline">Get New Activation Email</h2>
+  <div class="box">
+    <div id="link_error" class="error">
+      <%= @link_error if @link_error %>
+    </div>
+	
+  <form name="getactivationlink" action="/getactivationlink" method="post">
+	<label for="email">Email *</label>
+	<input type="email" name="email" required autofocus value="<%= params[:email] %>"/>
+	<label for="email">Type "please" *</label>
+	<input type="text" name="please" required value=""/>
+    <input type="submit" value="Send It" />
+  </form>
+</div>
+</div>  
+
+<script type="text/javascript">
+	function basicValidator(formName, password, extraRules, errorElementId) {
+		var basicRules = [{
+			name: 'email',
+			rules: 'required|valid_email'
+		}];
+		return new FormValidator(formName, basicRules.concat(extraRules), function(errors, event) {
+			if (errors.length > 0) {
+		        var errorString = [];
+		        for (var i = 0, errorLength = errors.length; i < errorLength; i++) errorString.push(errors[i].message);
+		        document.getElementById(errorElementId).innerHTML =  errorString.join("<br />");
+			} 
+		});
+	}
+	validator = basicValidator('passwordreset', false, [{
+		name: 'please',
+		rules: 'required|callback_please'
+	}], 'link_error');
+	validator.registerCallback('please', function(value) {
+	    return value.toLowerCase() == "please" ? true : false;
+	}).setMessage('please', 'You must type "please" in that box. We have manners here.');
+</script>
+
+<%= erb :footer %>
+
+

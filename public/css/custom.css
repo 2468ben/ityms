@@ -1,0 +1,207 @@
+@import url(http://fonts.googleapis.com/css?family=Courgette);
+h1 {
+	font-family: "Courgette";
+} 
+h2, h3, h4, h5, h6 {
+	font-family: Palatino, "Palatino Linotype", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+	font-family: Palatino, "Palatino Linotype", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	textarea,
+	select, input[type="submit"]{
+		font-family: Palatino, "Palatino Linotype", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+input[type="submit"], label {
+	font-weight: bold;
+	font-size: 90%;
+}
+a {
+  text-decoration: none;
+  color: #193351;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #193351;
+}
+
+
+.right-align {
+  text-align: right;
+}
+
+body {
+  font-size: 100%;
+  background: #D0DFE8;
+  color: #193341;
+}
+
+.container {
+}
+
+#updateform {
+  margin: 10px;
+}
+
+.rightcolumn {
+  
+}
+
+td {
+	display: block;
+}
+
+.box {
+  padding: 10px;
+  margin: 10px;
+}
+.indent {
+  margin-left: 8px;
+}
+
+textarea {
+  height: 5em;
+  width: 500px;
+}
+
+#maincol, #rightcol, #header, #footer, .roundedbox {
+	background: #FFF;
+	border: 1px solid #BBB;
+	border-radius: 5px;
+	box-shadow: 0px 2px 3px #888;
+}
+#header, #footer {
+	margin-top: 20px;
+	margin-bottom: 14px;
+}
+#footer {
+	text-align: center;
+}
+#maincol {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+#rightcol {
+	float: right;
+}
+#logo {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#logo h1 {
+	margin: 4px 10px 10px 14px;
+	display: inline;
+}
+#logo_subtitle {
+	font-style: italic;
+	font-weight: bold;
+	vertical-align: text-bottom;
+	padding-left: 9px;
+}
+#mainmenu {
+	margin-top: 23px;
+	margin-bottom: 12px;
+	padding-left: 10px;
+}
+.headline {
+	padding: 12px;
+	font-size: 30px;
+	border-bottom: 3px double #DEF;
+}
+#posts {
+	margin-bottom: 10px;
+}
+
+#posts .date {
+  font-size: 75%;
+  color: #999;
+}
+
+#posts hr {
+  margin: 0;
+}
+
+#posts .post {
+  border-top: 1px dashed #DEF;
+  padding: 14px 15px;
+  margin: 0px 5px;
+}
+#posts .post:first-child {
+	border-top: 0px;
+}
+#posts .post div, #posts .post span, #posts .post a {
+	padding: 1px 0px;
+}
+#posts .post a {
+	color: #3E606F;
+	font-weight: bold;
+} 
+#posts .post .post_headers *, #posts .post .post_details * {
+	display: inline;
+	font-size: 14px;
+}
+#posts .post .post_diff {
+	padding-top: 9px;
+	padding-bottom: 7px;
+	font-size: 17px;
+}
+#posts .post .post_to {
+	padding-left: 5px;
+}
+#posts .post_likes, #posts .post_delete {
+	padding-left: 2px;
+}
+
+.user-list li {
+  list-style: none;
+}
+#signup_error, #login_error {
+	color: #ff0000;
+}
+.loginresetlink {
+	font-size: 85%;
+	display: block;
+	margin-bottom: 7px;
+}
+
+del.differ {
+	color: #A1ABA6;
+}
+ins.differ {
+	color: #C44;
+	text-decoration: none;
+	position: relative;
+	top: -4px;
+	font-weight: bold;
+	font-style: italic;
+}
+#splash_loginlink {
+	text-align: center;
+	padding: 5px 0px 10px 0px;
+	text-decoration: underline;
+}
+#termsagree {
+	font-size: 90%;
+}
+.centered {
+	text-align: center;
+}
+#answerbox {
+	height: 60px;
+}
+#answertext {
+	display :none;
+	padding-top: 10px;
+	font-weight: bold;
+}
+button.answer_button {
+	font-size: 16px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+}

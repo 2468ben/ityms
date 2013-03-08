@@ -1,0 +1,41 @@
+<%= erb :header %>
+<div class="sixteen columns alpha omega" id="maincol">
+	<script>
+	var hideNoButton = function() { toggleVis("answer_no", false) };
+	var showText = function() {
+		toggleVis("answertext", true);
+		toggleVis("answerbuttons", false);
+	};
+	var toggleVis = function(id, onoff) { document.getElementById(id).style.display = onoff ? "block" : "none"; }
+	</script>
+	<% if @logged_in_user %><h2 class="headline">About</h2><% end %>
+	<div class="box centered">
+		<h2>ITYMS - I Think You Meants</h2><br />
+		Oh no, is there something wrong on the Internet?<br /><br />
+		Bad spelling? Bad grammar? Bad anything?<br /><br />  
+		Do you wish you could fix it?<br /><br />
+		<div id="answerbox">
+			<span id="answertext">WISH GRANTED</span>
+			<span id="answerbuttons">
+				<button id="answer_yes" class="answer_button" onclick="showText()">Yes</button>
+				<button id="answer_no" class="answer_button" onMouseOver="hideNoButton()">No</button>
+			</span>
+		</div>
+		Welcome to a place where you can make "ityms".<br /><br />
+		Post the URL, what phrase is wrong, and what it should say.<br /><br />
+		<a href="<%= $plugin_link %>">Install the Chrome plugin</a> to see your ityms instantly fix the webpage.<br /><br />
+		Like other ityms, see what's popular, follow users, and treat it like any stupid social site.<br /><br />
+		Most importantly have fun with it, and let me know what you think (if you're someone who thinks).
+		<br /><br />
+		<div id="splash_loginlink">
+		<% unless @logged_in_user %><h4><a href="/login">Login or Signup</a></h4><% end %>
+		</div>
+	</div>
+</div>
+<div class="sixteen columns alpha omega roundedbox">
+	<h3 class="headline">Recent ityms</h3>
+	<div class="box">
+	  	<%= erb :_posts, :locals => {:posts => @posts} %>
+	</div>
+</div>
+<%= erb :footer %>

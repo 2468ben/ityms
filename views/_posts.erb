@@ -1,0 +1,9 @@
+<div id="posts" class="two-thirds column alpha omega">
+    <% if @posts.empty? %>
+      No posts.
+    <% else %>
+      <% @posts.each do |post| %>
+	  	<%= erb :_post, :locals => {:post => post } %>
+      <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,80 @@
+<%= erb :header %>
+<script type="text/javascript" src="/js/validate.min.js"></script>
+<div class="eight columns alpha" id="maincol">
+  <h2 class="headline">Login</h2>
+  <div class="box">
+    <div id="login_error" class="error">
+      <%= @login_error if @login_error %>
+    </div>
+  
+  <form name="login" action="/login" method="post">
+	<label for="email">Email *</label>
+	<input type="email" name="email" required autofocus value="<%= params[:email] %>"/>
+	<label for="password">Password *</label>
+	<input type="password" name="password" required maxlength=40 placeholder="5-40 characters" />
+    <input type="submit" value="Log in" />
+  </form>
+  <a class="loginresetlink" href="/resetpassword">Reset Password</a><br />
+  <a class="loginresetlink" href="/getactivationlink">Get New Activation Email</a>
+</div>
+</div>  
+
+<div class="eight columns alpha omega" id="rightcol">
+  <h2 class="headline">Sign up</h2>
+  <div class="box">
+    <div id="signup_error" class="error">
+	  <%= @signup_error if @signup_error %>
+    </div>
+  
+  <form name="signup" action="/signup" method="post">
+	<label for="username">Username *</label>
+	<input type="text" name="username" required maxlength=20 placeholder="5-20 letters and/or numbers" value="<%= params[:username] %>"/>
+	<label for="email">Email *</label>
+    <input type="email" name="email" required value="<%= params[:email] %>"/>
+    <label for="password">Password *</label>
+    <input type="password" name="password" required maxlength=40 placeholder="5-40 characters" />
+    <label for="grammar">What is the opposite of "here"? *</label>
+    <input type="text" name="grammar" required/>
+	<input type="checkbox" name="agree"><span id="termsagree">I agree to the <a href="/terms">terms of service</a> and <a href="/privacy">privacy policy</a></span></input><br /><br />
+    <input type="submit" value="Create an account">
+  </form>
+</div>
+</div>
+<script type="text/javascript">
+	function basicValidator(formName, password, extraRules, errorElementId) {
+		var basicRules = [{
+			name: 'email',
+			rules: 'required|valid_email'
+		}];
+		if(password) basicRules.push({
+			name: 'password',
+			rules: 'required|min_length[5]|max_length[40]'
+		});
+		return new FormValidator(formName, basicRules.concat(extraRules), function(errors, event) {
+			if (errors.length > 0) {
+		        var errorString = [];
+		        for (var i = 0, errorLength = errors.length; i < errorLength; i++) errorString.push(errors[i].message);
+		        document.getElementById(errorElementId).innerHTML =  errorString.join("<br />");
+			} 
+		});
+	}
+	
+	login_validator = basicValidator('login', true, [], 'login_error');
+	signup_validator = basicValidator('signup', true, [{
+		name: 'username',
+		rules: 'required|alpha_numeric|min_length[5]|max_length[20]',
+	},{
+		name: 'grammar',
+		rules: 'required|callback_grammar'
+	},{
+		name: 'agree',
+		display: 'terms and privacy agreement',
+		rules: 'required'
+	}], 'signup_error');
+	signup_validator.registerCallback('grammar', function(value) {
+	    return value.toLowerCase() == "there" ? true : false;
+	}).setMessage('grammar', 'That\'s not the opposite of "here".');
+</script>
+<%= erb :footer %>
+
+

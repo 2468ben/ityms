@@ -1,0 +1,12 @@
+<div class="one-third column alpha omega" id="rightcol">
+	<div class="box">
+      <h4><%= pluralize("following", "following", @followees.length) %></h4>
+	  <div class="indent">
+      	<%= erb :_user_list, :locals => {:users => @followees } %>
+  	  </div>
+	  <h4><%= pluralize("follower", "followers", @followers.length) %></h4>
+	  <div class="indent">
+		  <%= erb :_user_list, :locals => {:users => @followers } %>
+	  </div>
+	</div>
+</div>

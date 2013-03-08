@@ -1,0 +1,20 @@
+<div class="post">
+  <div class="post_headers"><span class="post_from">From: </span><div class="post_username"><a href="<%= post.user.username %>"><%= post.user.username %></a></div>
+ <span class="post_to">To: </span> <div class="post_url"><a href="<%= post.url %>"><%= post.domain %></a></div></div>
+  <div class="post_diff"><%= "\"#{post.phrase_diff}\"" %></div>
+  <div class="post_details">
+  <div class="post_date">
+    <%= timestamp(Time.parse(post.created_at))%>
+  </div>
+  <% if @logged_in_user %>
+	  <% if post.user == @logged_in_user %>
+	  	· <a class="post_likes" href="/post/<%= post.id %>"><%= post.likingUsers.size %> likes</a>
+	  	· <a class="post_delete" href="/post/delete/<%= post.id %>">Delete</a>
+	  <% else post.likingUsers.include?(@logged_in_user) %>
+	  	· <a class="post_likes" href="/post/unlike/<%= post.id %>">Liked</a><a href="/post/<%= post.id %>"> (<%= post.likingUsers.size %>) </a>
+	  <% end%>
+  <% else %>
+	· <a class="post_likes" href="/post/like/<%= post.id %>">Like</a><a href="/post/<%= post.id %>"> (<%= post.likingUsers.size %>) </a>
+  <% end %>
+  </div>
+</div>

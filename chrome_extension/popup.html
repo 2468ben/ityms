@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <head>
+    <title>ITYMS</title>
+	<link href="popup.css" rel="stylesheet" type="text/css">
+    <script src="popup.js"></script>
+  </head>
+  <body>
+	  <div id="main">
+		  <div id="flash"></div>
+		  <div id="login">
+			  <div id="emailfield"><input id="email" type="text" placeholder="Email:" name="email"></div>
+			   <button id="loginbutton">Login</button>
+			   <button id="logoutbutton">Logout</button>
+		  </div>
+		  <div id="addpost">
+			  <label for="original">Original text:</label><textarea id="original" type="text" name="original" placeholder="include at least a few words to give the post some context"></textarea>
+			  <label for="yttm">You think they meant:</label><textarea id="yttm" type="text" name="yttm" placeholder=""></textarea>
+			  <button id="previewbutton">Preview</button>
+			  <button id="sendbutton">Submit</button>
+		  </div>
+		  <p>Posts</p>
+		  <div id="existingposts">
+		  </div>
+	  </div>
+  	</div>
+  </body>
+</html>

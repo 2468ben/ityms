@@ -1,0 +1,3 @@
+class UserTimeline < PostList
+
+end

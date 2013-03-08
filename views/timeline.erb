@@ -1,0 +1,19 @@
+
+<%= erb :header %>
+
+<div class="two-thirds column alpha omega" id="maincol">
+  <h2 class="headline">Global Timeline</h3>
+	  <div class="box">
+  		<%= erb :_posts %>
+	</div>
+</div>
+<div class="one-third column alpha omega" id="rightcol">
+  <div class="box">
+	  <h4>New users</h4>
+	  <div class="indent">
+		  <%= erb :_user_list, :locals => {:users => $userlist.get_page(1, 11)} %>
+	  </div>
+  </div>
+</div>
+<%= erb :footer %>
+
