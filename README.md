@@ -22,6 +22,6 @@ So, to recap:
    Site for grammar police, acts like Twitter + Find/Replace
    Sinatra+Redis, designed to be simple, fast, almost from scratch and so clear the code doesn't need documentation.
 
-Sadly this is my only open source repo because I mostly work on "valuable" code that can't be released. So please critique my one "valueless" little toddler of a site. 
+Sadly this is my only open source repo because I mostly work on "valuable" code that can't be released. So please critique my one "valueless" little toddler of a site. And in the holy spirit of open source, I sincerely hope this helps someone as it helped me.
 
 -Ben Donaldson
