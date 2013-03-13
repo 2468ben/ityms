@@ -9,10 +9,13 @@ require 'base64'
 require 'json'
 require 'dalli'
 require 'rack-cache'
+require 'sinatra/assetpack'
 
 require_relative 'helpers/tzinfo_timezone'
 
 class ItymsApp < Sinatra::Application
+  set :root, File.dirname(__FILE__)
+  register Sinatra::AssetPack
   set :sessions, true
   set :protection, :except => [:remote_token, :json_csrf]
   APP_CONFIG = YAML.load_file("config/environment.yml")['production']
@@ -50,6 +53,20 @@ class ItymsApp < Sinatra::Application
     end
   end
   
+  assets {
+    js :validate, ['js/validate.min.js']
+
+    css :application, [
+        'css/base.css',
+        'css/layout.css',
+        'css/skeleton.css',
+        'css/custom.css'
+    ]
+
+    js_compression :jsmin
+    css_compression :simple
+  }
+
   $mail_username = ENV['SENDGRID_USERNAME']
   $top_domain = APP_CONFIG['top_domain']
   

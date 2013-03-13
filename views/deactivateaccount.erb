@@ -1,5 +1,4 @@
 <%= erb :header %>
-<script type="text/javascript" src="/js/validate.min.js"></script>
 <div class="eight columns alpha">
   <h2>Deactivate Account</h2>
   Are you sure? All of your posts and likes will be hidden, but your followers/followees will be deleted.
@@ -16,6 +15,7 @@
 
 <div class="eight columns omega">
 </div>
+<%= js :validate %>
 <script type="text/javascript">
 	function basicValidator(formName, password, extraRules, errorElementId) {
 		var basicRules = [{

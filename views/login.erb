@@ -1,5 +1,4 @@
 <%= erb :header %>
-<script type="text/javascript" src="/js/validate.min.js"></script>
 <div class="eight columns alpha" id="maincol">
   <h2 class="headline">Login</h2>
   <div class="box">
@@ -40,6 +39,7 @@
   </form>
 </div>
 </div>
+<%= js :validate %>
 <script type="text/javascript">
 	function basicValidator(formName, password, extraRules, errorElementId) {
 		var basicRules = [{

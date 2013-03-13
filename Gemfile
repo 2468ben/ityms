@@ -6,6 +6,7 @@ gem 'ohm'
 gem 'mail'
 gem 'tzinfo'
 gem 'differ'
+gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 group :production do
   gem 'newrelic_rpm'
 end
