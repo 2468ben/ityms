@@ -1,10 +1,25 @@
-Twitter posting integration
-analytics - AARRR steps
+Features:
+	optimization - aside from Google Analytics and New Relic, everything is AOK according to Google Page speed. 
+		Brainstorm other ways to make the site load more quickly (aside from buying dynos) 
 
-use find/replace magic on site, not just chrome extension
-mozilla persona for alternate login
-websnapr jquery qtip for url - shows a free preview screenshot of the url as a tooltip  
-site-wide keyword search
-take difference in two phrases, add those words as "keywords" for searching
-spell check
-	free tools for that: bjspell, afterthedeadline
+	Sent post to twitter (without adding twitter authorization)
+	analytics - AARRR steps
+
+	Show off find/replace magic on the site, not just chrome extension
+		Perhaps open the offending page in a new tab with an iframe/wrapper and the find/replace diff highlighted.
+	websnapr jquery qtip for url - shows a free preview screenshot of the url as a tooltip (I like the above idea better)
+	mozilla persona for alternate login - it's clean and simple and doesn't require connecting other personal accounts (FB/Twitter).
+	 
+	site-wide keyword searches (while keeping the extra keys in redis to a minimum)
+		take difference in two phrases, add those words as "keywords" for searching
+	spell check (or are grammar police better than that?)
+		free tools for spell check: bjspell, afterthedeadline
+
+
+Refactoring:
+	break up logic in the login.rb and main.rb files. It's not terrible but if I could make it more readable by moving things to helper functions, then great.
+	don't add more layers of abstraction, you get to do that at work and it's harder to follow without breaking the no-documentation rule.
+
+Welsh corgis:
+	Do you think if you made little shoes like Vibram five-fingers for their tiny paws, that might help them?
+	They were clearly thrown down Darwin's crap chute by dog breeders, so we owe them something, right?
