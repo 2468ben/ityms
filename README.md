@@ -15,13 +15,14 @@ This is a fast site for being on Heroku's free plan. It uses Redis so even thoug
 
 I wrote the signup/login/security and other user flows on purpose too, to better understand a right way of doing things from scratch. I have used gems and frameworks for those flows, but this is to show I understand the fundamentals.
 
-My last goal (and this is an exercise, not an excuse) is to make all of the code clear without comments, and I'd like help making sure of that. So if there's code that you think are unclear (and/or have suggestions to improve it without adding comments) then please comment, message or issue a pull request.
+My last goal (and this is seriously an exercise, not an excuse) is to make all of the code clear without comments, and I'd like help making sure of that. So if there's code that you think are unclear (and/or have suggestions to improve it without adding comments) then please comment, message or issue a pull request.
 
+There's a file called "ityms todo.txt" which are ideas for features or making the code clearer.
 
 So, to recap:
-   Site for grammar police, acts like Twitter + Find/Replace
+   Site for grammar police, acts like Twitter + Find/Replace, clearly no one uses it
    Sinatra+Redis, designed to be simple, fast, almost from scratch and so clear the code doesn't need documentation.
 
-Sadly this is my only open source repo because I mostly work on "valuable" code that can't be released. So please critique my one "valueless" little toddler of a site. And in the holy spirit of open source, I sincerely hope this helps someone as it helped me.
+Sadly this is my only open source repo because I mostly work on "corporately valuable" code that can't be released. So please critique my one free little toddler of a site. And in the holy spirit of open source, I sincerely hope this helps someone as it helped me.
 
 -Ben Donaldson
